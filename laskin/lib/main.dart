@@ -216,3 +216,109 @@ class _EqualButton extends StatelessWidget{
 
 
 
+
+             //NÄKYMÄ//
+import 'package:flutter/material.dart';
+
+void main() => runApp(new MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: "Calculator",
+      theme: new ThemeData.dark(),
+      home: new HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget{
+  @override
+  State createState() => new HomePageState();
+}
+
+class HomePageState extends State<HomePage>{ 
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Calculator"),
+      ),
+      body: Container(
+        child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[ 
+            Container( 
+              constraints: BoxConstraints.expand( 
+                height: 100.0,
+              ),
+              alignment: Alignment.bottomRight,
+              color: Colors.white,
+              child: Text(
+                "0",
+                style: TextStyle(
+                  fontSize: 50.0,
+                  color: Colors.black
+                ),
+                textAlign: TextAlign.right,
+              ),
+            ),
+            Row(
+               mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                 newButton("1"),
+                 newButton("2"),
+                 newButton("3"),
+                 newButton("+"),
+              ],
+            ),
+            Row(
+               mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                 newButton("4"),
+                 newButton("5"),
+                 newButton("6"),
+                 newButton("-"),
+              ],
+            ),
+           Row(
+               mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                 newButton("7"),
+                 newButton("8"),
+                 newButton("9"),
+                 newButton("*"),
+              ],
+            ),
+           Row(
+               mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                 newButton("C"),
+                 newButton("0"),
+                 newButton("="),
+                 newButton("/"),
+              ],
+            )
+          ],
+        ),
+      )
+    );
+  }
+}
+
+Widget newButton (String number){ // Creating a method of return type Widget with number and function f as a parameter
+    return MaterialButton(
+      height: 125.0,
+      child: Text(number,
+      style:  TextStyle(fontWeight: FontWeight.bold, fontSize: 40.0)),
+      textColor: Colors.black,
+      color: Colors.grey[100],
+      onPressed: () => {
+
+      },
+    );
+  }
+
+
